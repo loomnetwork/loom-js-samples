@@ -1,0 +1,20 @@
+{
+  "name": "loom-js-samples",
+  "version": "1.0.0",
+  "description": "Sample code from loom-js QuickStart",
+  "main": "index.js",
+  "repository": "https://github.com/loomnetwork/loom-js-samples.git",
+  "author": "Loom Network <team@loomx.io>",
+  "license": "BSD-3",
+  "private": false,
+  "scripts": {
+    "start": "node index.js",
+    "proto": "protoc --js_out=\"import_style=commonjs,binary:.\" helloworld.proto"
+  },
+  "dependencies": {
+    "loom-js": "^1.0.1"
+  },
+  "devDependencies": {
+    "protoc": "^1.0.3"
+  }
+}
