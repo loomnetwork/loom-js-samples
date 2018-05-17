@@ -31,7 +31,7 @@ function getContract(privateKey, publicKey) {
   return new Contract({
     contractAddr,
     // the name of the smart contract at `contractAddr`
-    contractName: 'helloworld',
+    contractName: 'BluePrint',
     callerAddr,
     client
   })
