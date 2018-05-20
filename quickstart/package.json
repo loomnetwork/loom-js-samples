@@ -9,12 +9,16 @@
   "private": false,
   "scripts": {
     "start": "node index.js",
-    "proto": "protoc --js_out=\"import_style=commonjs,binary:.\" helloworld.proto"
+    "proto": "protoc --js_out=\"import_style=commonjs,binary:.\" helloworld.proto",
+    "compile": "babel index.js -o output.js && npm run browserify",
+    "browserify": "browserify output.js -o bundle.js"
   },
   "dependencies": {
     "loom-js": "^1.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "browserify": "^16.2.2",
     "protoc": "^1.0.3"
   }
 }

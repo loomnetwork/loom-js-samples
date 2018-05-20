@@ -55,10 +55,13 @@ async function load(contract, key) {
   // The smart contract will look up the value stored under this key.
   params.setKey(key)
   const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
+  console.log("weee------", result)
+  console.log("weee2------", result.getValue())
   return result.getValue()
 }
 
-(async function () {
+
+window.fireBlockchainEvents = async function () {
   const privateKey = CryptoUtils.generatePrivateKey()
   const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
   
@@ -66,4 +69,4 @@ async function load(contract, key) {
   await store(contract, '123', 'hello!')
   const value = await load(contract, '123')
   console.log('Value: ' + value)
-})()
+}
