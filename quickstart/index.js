@@ -11,7 +11,7 @@ const { MapEntry } = require('./helloworld_pb')
  * @param publicKey Public key that corresponds to the private key.
  * @returns `Contract` instance.
  */
-function getContract(privateKey, publicKey) {
+async function getContract(privateKey, publicKey) {
   const client = new Client(
     'default',
     'ws://127.0.0.1:46657/websocket',
@@ -22,11 +22,11 @@ function getContract(privateKey, publicKey) {
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
   ]
-  // address of the `helloworld` smart contract on the Loom DAppChain
-  const contractAddr = new Address(
-    client.chainId,
-    LocalAddress.fromHexString('0x005B17864f3adbF53b1384F2E6f2120c6652F779')
-  )
+  
+  const contractAddr = await client.getContractAddressAsync('BluePrint')
+    if (!contractAddr) {
+      throw new Error('Failed to resolve contract address')
+  }
   const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
   return new Contract({
     contractAddr,
@@ -62,7 +62,7 @@ async function load(contract, key) {
   const privateKey = CryptoUtils.generatePrivateKey()
   const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
   
-  const contract = getContract(privateKey, publicKey)
+  const contract = await getContract(privateKey, publicKey)
   await store(contract, '123', 'hello!')
   const value = await load(contract, '123')
   console.log('Value: ' + value)
