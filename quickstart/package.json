@@ -12,7 +12,7 @@
     "proto": "protoc --js_out=\"import_style=commonjs,binary:.\" helloworld.proto"
   },
   "dependencies": {
-    "loom-js": "^1.2.0"
+    "loom-js": "^1.4.3"
   },
   "devDependencies": {
     "protoc": "^1.0.3"

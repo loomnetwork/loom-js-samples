@@ -46,6 +46,10 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
 
+async-limiter@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -180,7 +184,7 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-circular-json@^0.5.1:
+circular-json@^0.5.4:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.5.4.tgz#ff1ad2f2e392eeb8a5172d4d985fa846ed8ad656"
 
@@ -339,7 +343,7 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-eventemitter3@^3.0.0:
+eventemitter3@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
 
@@ -546,14 +550,15 @@ keypather@^1.10.2:
   dependencies:
     "101" "^1.0.0"
 
-loom-js@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/loom-js/-/loom-js-1.2.0.tgz#15262012144fbc8c354e911f2253d1c709f72540"
+loom-js@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/loom-js/-/loom-js-1.4.3.tgz#80c6cdbc15861a87414e3575e79066bced121702"
   dependencies:
     crypto-browserify "^3.12.0"
     google-protobuf "^3.5.0"
+    retry "^0.12.0"
     ripemd160 "^2.0.1"
-    rpc-websockets "^3.6.1"
+    rpc-websockets "^4.1.1"
     tweetnacl "^1.0.0"
 
 "match-stream@>= 0.0.2 < 1":
@@ -704,10 +709,6 @@ punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-qaap-uws@^9.14.3:
-  version "9.14.3"
-  resolved "https://registry.yarnpkg.com/qaap-uws/-/qaap-uws-9.14.3.tgz#2400666db80c33446f8f8ed0167adb2b2b2d281f"
-
 qs@~6.5.1:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -784,6 +785,10 @@ request@^2.79.0:
     tunnel-agent "^0.6.0"
     uuid "^3.1.0"
 
+retry@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
+
 rimraf@2, rimraf@^2.5.4:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
@@ -797,16 +802,16 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rpc-websockets@^3.6.1:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/rpc-websockets/-/rpc-websockets-3.6.3.tgz#6a4de6bb91a7e15b19559a0521413ce64356e7e6"
+rpc-websockets@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/rpc-websockets/-/rpc-websockets-4.1.1.tgz#e20228658ba792848957ee4aa1b57ef2828b4165"
   dependencies:
     assert-args "^1.2.1"
     babel-runtime "^6.26.0"
-    circular-json "^0.5.1"
-    eventemitter3 "^3.0.0"
-    qaap-uws "^9.14.3"
+    circular-json "^0.5.4"
+    eventemitter3 "^3.1.0"
     uuid "^3.2.1"
+    ws "^5.1.1"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
@@ -928,3 +933,9 @@ vinyl@^2.0.1:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+ws@^5.1.1:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.0.tgz#9fd95e3ac7c76f6ae8bcc868a0e3f11f1290c33e"
+  dependencies:
+    async-limiter "~1.0.0"

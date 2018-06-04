@@ -1,5 +1,5 @@
 const {
-  NonceTxMiddleware, SignedTxMiddleware, Client,
+  NonceTxMiddleware, SignedTxMiddleware, Client, ClientEvent,
   Contract, Address, LocalAddress, CryptoUtils
 } = require('loom-js')
 
@@ -17,6 +17,9 @@ async function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46657/websocket',
     'ws://127.0.0.1:9999/queryws'
   )
+
+  client.on(ClientEvent.Error, err => console.log(err || 'Unexpected Client Error'))
+
   // required middleware
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
